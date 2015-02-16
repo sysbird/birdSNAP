@@ -67,10 +67,20 @@ body {
 }
 
 .container {
-	width: 96%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0;
 	position: relative;
+	@include clearfix;
+}
+
+#header .container,
+#footer .container {
+	width: 96%;
+}
+
+#sidebar {
+	margin: 0 auto;
 }
 
 #header {
@@ -224,7 +234,7 @@ body {
 /* Posts
 --------------------------------------------- */
 #content {
-	padding: 1.6em 0;
+	padding-bottom: 1.6em;
 
 	.content-header {
 		margin: 0 0 3.2em 0;
@@ -237,6 +247,12 @@ body {
 		}
 	}
 
+	ul.article {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
 	.hentry {
 		width: 100%;
 		word-wrap: break-word;
@@ -246,8 +262,13 @@ body {
 		@include clearfix;
 
 		.entry-eyecatch {
-			width: 240px;
-			margin: 0 0 0.8em 0.8em;
+			margin-bottom: 0.8em;
+			text-align: center;
+
+			img {
+				max-width: 100%;
+				vertical-align:text-bottom;
+			}
 
 			a {
 				display: block;
@@ -883,9 +904,27 @@ video {
 --------------------------------------------- */
 #sidebar {
 	.widget {
-		border: solid 4px $border-color;
-		margin-bottom: 1.6em;
+		border-top: solid 4px $border-color;
+		margin: 0 0 10px 0;
 		padding: 0.8em;
+
+		&.search {
+			border: none;
+			padding: 0;
+		}
+
+		h3 {
+			border-bottom: solid 2px $border-color;
+			color: $text-color;
+		}
+
+		#searchform {
+			#s {
+				border-top: solid 2px $border-color;
+				border-bottom: solid 2px $border-color;
+				border-left: solid 2px $border-color;
+			}
+		}
 	}
 }
 
@@ -1117,27 +1156,6 @@ video {
 	}
 }
 
-/* Posts
---------------------------------------------- */
-#content {
-	ul.article {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
-		.hentry {
-			.entry-eyecatch {
-				margin-bottom: 1.6em;
-
-				img {
-					width: 100%;
-					vertical-align:text-bottom;
-				}
-			}
-		}
-	}
-}
-
 /* Single
 -------------------------------------------------------------------- */
 .single {
@@ -1245,6 +1263,10 @@ video {
 /* --- iPad Landscape --- */
 @media screen and (min-width: 660px) {
 
+	.container {
+		width: 96%;
+	}
+
 	#header {
 		*zoom: 1;
 		&:after {
@@ -1339,29 +1361,23 @@ video {
 		}
 	}
 
+	#main {
+		width: 100%;
+		float: left;
+		padding-right: 300px;
+	}
+
 	#content {
+		padding-right: 1.6em;
+	}
 
-		ul.article {
-			.hentry {
-				.entry-eyecatch {
-					margin-bottom: 0;
-					float: right;
-				}
+	#sidebar {
+	    float: right;
+	    width: 300px;
+	    margin-left: -300px;
 
-				.entry-header,
-				.entry-content,
-				.entry-meta {
-				//	margin-left: 260px;
-				}
-
-				&.no-eyecatch {
-					.entry-header,
-					.entry-content,
-					.entry-meta {
-						margin-left: 0;
-					}
-				}
-			}
+		.widget {
+			border: solid 4px $border-color;
 		}
 	}
 
@@ -1387,7 +1403,10 @@ video {
 
 /* --- PCs --- */
 @media screen and (min-width: 930px) {
-	.container {
+
+	.container,
+	#header .container,
+	#footer .container {
 		width: 930px;
 	}
 
@@ -1405,19 +1424,20 @@ video {
 		}
 	}
 
-	#main {
-		@include clearfix;
-	}
-
 	#content {
-		width: 630px;
-		float: left;
-	}
 
-	#sidebar {
-	    float: right;
-	    width: 300px;
-	    padding-left: 1.6em;
+		ul.article {
+			.hentry {
+				.entry-eyecatch {
+					margin-left: 0.8em;
+					float: right;
+
+					img {
+						max-width: 300px;
+					}
+				}
+			}
+		}
 	}
 
 	#widget-area {
