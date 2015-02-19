@@ -90,9 +90,7 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  position: relative;
-  overflow: hidden;
-  *zoom: 1; }
+  position: relative; }
 
 #header .container,
 #footer .container {
@@ -143,7 +141,7 @@ body {
   #header a {
     color: #3399cc; }
   #header #branding {
-    padding: 3.2em 0 1.6em; }
+    padding: 1.6em 0; }
     #header #branding #site-title {
       margin: 0;
       padding: 0;
@@ -235,7 +233,6 @@ body {
   #content .hentry {
     width: 100%;
     word-wrap: break-word;
-    margin-bottom: 1.6em;
     padding-top: 1.6em;
     border-top: solid 1px #e5e5e5;
     overflow: hidden;
@@ -248,22 +245,21 @@ body {
         vertical-align: text-bottom; }
       #content .hentry .entry-eyecatch a {
         display: block; }
-    #content .hentry .entry-header {
-      margin-bottom: 1.6em; }
-      #content .hentry .entry-header .entry-title {
-        color: #333333;
-        font-size: 2.4rem;
-        font-weight: normal;
-        margin: 0;
-        padding: 0;
-        line-height: 1;
-        border: none; }
-        #content .hentry .entry-header .entry-title a {
-          color: #333333; }
+    #content .hentry .entry-header .entry-title {
+      color: #333333;
+      font-size: 2.4rem;
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      border: none; }
+      #content .hentry .entry-header .entry-title a {
+        color: #333333; }
     #content .hentry .entry-meta {
       color: #999999;
       font-size: 0.9rem;
       line-height: 1.4;
+      margin-top: 0.4em;
       margin-bottom: 1.6em;
       overflow: hidden;
       *zoom: 1; }
@@ -355,10 +351,12 @@ body {
           background: #3399cc;
           color: #FFF; }
     #content .hentry a.more-link {
+      display: block;
       font-size: 0.9em;
       color: #3399cc;
       padding: 0.4em 0.8em;
-      border: solid 1px #3399cc; }
+      border: solid 1px #3399cc;
+      text-align: center; }
       #content .hentry a.more-link:hover {
         text-decoration: none;
         background: #3399cc;
@@ -554,6 +552,12 @@ body {
     background: #ffc;
     color: #333333;
     text-decoration: none; }
+  #content .entry-header,
+  #content .entry-meta,
+  #content .entry-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%; }
 
 /* Images
 -------------------------------------------------------------- */
@@ -780,6 +784,8 @@ video {
   margin: 0 0 10px 0;
   padding: 0.8em; }
   #sidebar .widget.search {
+    width: 96%;
+    margin: 0 auto 10px;
     border: none;
     padding: 0; }
   #sidebar .widget h3 {
@@ -1152,6 +1158,10 @@ video {
 
   #content {
     padding-right: 1.6em; }
+    #content .entry-header,
+    #content .entry-meta,
+    #content .entry-content {
+      width: 100%; }
 
   #sidebar {
     float: right;
@@ -1159,6 +1169,8 @@ video {
     margin-left: -300px; }
     #sidebar .widget {
       border: solid 4px #e5e5e5; }
+      #sidebar .widget.search {
+        width: 100%; }
 
   .single #content #nav-below {
     overflow: hidden;
@@ -1187,6 +1199,8 @@ video {
     float: right; }
     #content ul.article .hentry .entry-eyecatch img {
       max-width: 300px; }
+  #content ul.article .hentry a.more-link {
+    display: inline; }
 
   #widget-area .widget {
     width: 290px;

@@ -71,7 +71,6 @@ body {
 	margin: 0 auto;
 	padding: 0;
 	position: relative;
-	@include clearfix;
 }
 
 #header .container,
@@ -136,7 +135,7 @@ body {
 	}
 
 	#branding {
-		padding: 3.2em 0 1.6em;
+		padding: 1.6em 0;
 
 		#site-title {
 			margin: 0;
@@ -256,7 +255,6 @@ body {
 	.hentry {
 		width: 100%;
 		word-wrap: break-word;
-		margin-bottom: 1.6em;
 		padding-top: 1.6em;
 		border-top: solid 1px $border-color;
 		@include clearfix;
@@ -276,7 +274,6 @@ body {
 		}
 
 		.entry-header {
-			margin-bottom: 1.6em;
 
 			.entry-title {
 				color: $text-color;
@@ -297,6 +294,7 @@ body {
 			color: $meta-color;
 			font-size: 0.9rem;
 			line-height: 1.4;
+			margin-top: 0.4em;
 			margin-bottom: 1.6em;
 			@include clearfix;
 
@@ -379,10 +377,12 @@ body {
 		}
 
 		a.more-link {
+			display: block;
 			font-size: 0.9em;
 			color: $link-color;
 			padding: 0.4em 0.8em;
 			border: solid 1px $link-color;
+			text-align: center;
 
 			&:hover {
 				text-decoration: none;
@@ -596,6 +596,14 @@ body {
 			color: $text-color;
 			text-decoration: none;
 		}
+	}
+
+	.entry-header,
+	.entry-meta,
+	.entry-content {
+		margin-left: auto;
+		margin-right: auto;
+		width: 96%;
 	}
 }
 
@@ -909,6 +917,8 @@ video {
 		padding: 0.8em;
 
 		&.search {
+			width: 96%;
+			margin: 0 auto 10px;
 			border: none;
 			padding: 0;
 		}
@@ -1369,6 +1379,12 @@ video {
 
 	#content {
 		padding-right: 1.6em;
+
+		.entry-header,
+		.entry-meta,
+		.entry-content {
+			width: 100%;
+		}
 	}
 
 	#sidebar {
@@ -1378,6 +1394,10 @@ video {
 
 		.widget {
 			border: solid 4px $border-color;
+
+			&.search {
+				width: 100%;
+			}
 		}
 	}
 
@@ -1435,6 +1455,10 @@ video {
 					img {
 						max-width: 300px;
 					}
+				}
+
+				a.more-link {
+					display: inline;
 				}
 			}
 		}
