@@ -8,9 +8,6 @@ jQuery(function() {
 		});
 	});
 
-	// Searchform at sidebar
-	jQuery('#sidebar .widget:has(".searchform")').addClass( 'search' );
-
 	// Navigation for mobile
 	jQuery( "#small-menu" ).click( function(){
 		jQuery( "#menu-primary-items" ).slideToggle();

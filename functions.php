@@ -327,6 +327,10 @@ class BirdSNAPFunctions {
 		wp_enqueue_script( 'jquery-masonry' );
 		wp_enqueue_script( 'birdsnap', get_template_directory_uri() .'/js/birdsnap.js', 'jquery', '1.00' );
 		wp_enqueue_style( 'birdsnap', get_stylesheet_uri() );
+
+		if ( strtoupper( get_locale() ) == 'JA' ) {
+			wp_enqueue_style( 'birdsnap_ja', get_template_directory_uri().'/css/ja.css' );
+		}
 	}
 
 	//////////////////////////////////////////////////////

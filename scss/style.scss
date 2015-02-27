@@ -19,8 +19,8 @@ This theme, like WordPress, is licensed under the GPL.
 
 // variable
 $text-color: #333;
-$link-color: #39C;
-$accent-color: #39C;
+$link-color: #00acf0;
+$accent-color: #00acf0;
 $border-color: #E5E5E5;
 $meta-color: #999;
 $widget-area-color: #E5E5E5;
@@ -110,7 +110,7 @@ body {
 /* Wrapper
 -------------------------------------------------------------- */
 .wrapper {
-	font-family: Verdana,Arial,"メイリオ",Meiryo,"ヒラギノ角ゴPro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック",sans-serif;
+	font-family: 'Raleway', Verdana,Arial, Meiryo , "Hiragino Kaku Gothic Pro" ,sans-serif;
 	background: #FFF;
 	color: $text-color;
 	overflow: hidden;
@@ -250,13 +250,18 @@ body {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		overflow: hidden;
+
+		.hentry {
+			border-top: solid 1px $border-color;
+			margin-top: -1px;
+		}
 	}
 
 	.hentry {
 		width: 100%;
 		word-wrap: break-word;
 		padding-top: 1.6em;
-		border-top: solid 1px $border-color;
 		@include clearfix;
 
 		.entry-eyecatch {
@@ -348,11 +353,10 @@ body {
 		.page-links {
 			clear: both;
 			margin: 1.6em 0;
-			color: $link-color;
+			color: $text-color;
 
 			span {
-				background: $link-color;
-				color: #FFF;
+				color: $link-color;
 				padding: 0.4em 0.8em;
 				margin-bottom: 5px;
 				text-decoration:none;
@@ -360,17 +364,16 @@ body {
 				text-align: center;
 				display: inline-block;
 				line-height: 1;
+				border-bottom: solid 2px $link-color;
 			}
 
 			a {
 				span {
-					background: #FFF;
-					color: $link-color;
-					border: solid 1px $link-color;
+					color: $text-color;
+					border-color: $border-color;
 
 					&:hover {
-						background: $link-color;
-						color: #FFF;
+						border-color: $link-color;
 					}
 				}
 			}
@@ -911,17 +914,10 @@ video {
 /* Sidebar
 --------------------------------------------- */
 #sidebar {
-	.widget {
-		border-top: solid 4px $border-color;
-		margin: 0 0 10px 0;
-		padding: 0.8em;
+	padding: 0 0.8em;
 
-		&.search {
-			width: 96%;
-			margin: 0 auto 10px;
-			border: none;
-			padding: 0;
-		}
+	.widget {
+		margin: 0 0 1.6em 0;
 
 		h3 {
 			border-bottom: solid 2px $border-color;
@@ -1221,15 +1217,15 @@ video {
 -------------------------------------------------------------------- */
 .tablenav {
 	clear: both;
-	color: $link-color;
+	color: $text-color;
+	margin: 1.6em 0;
 	@include clearfix;
 
 	.page-numbers,
 	.current {
 		display: inline-block;
-		color: $link-color;
-		border:solid 1px $link-color;
-		background: #FFF;
+		color: $text-color;
+		border-bottom: solid 2px $border-color;
 		text-decoration:none;
 		text-align: center;
 		padding: 0.4em 0.8em;
@@ -1237,7 +1233,7 @@ video {
 
 		&.prev,
 		&.next {
-			color: $link-color;
+			color: $text-color;
 			background: none;
 			border: none;
 			padding: 0;
@@ -1249,22 +1245,19 @@ video {
 		}
 	}
 
-
 	a.page-numbers:hover {
-		background: $link-color;
-		color: #FFF;
+		border-color: $link-color;
 	}
 
 	a.page-numbers.prev:hover,
 	a.page-numbers.next:hover {
 		background: none;
 		color: $link-color;
-		text-decoration: underline;
 	}
 
 	.current {
-		color: #FFF;
-		background: $link-color;
+		color: $link-color;
+		border-color: $link-color;
 	}
 }
 
@@ -1304,16 +1297,26 @@ video {
 			ul#menu-primary-items {
 				display: block !important;
 
-				li {
+				> li {
 					float: left;
+
+					> a {
+						text-align: center;
+						border-bottom: solid 2px $border-color;
+						margin-right: 5px;
+						padding: 0.4em 0.8em;
+					}
+
+					&.current-menu-item a {
+						border-color: $accent-color;
+					}
+				}
+
+				li {
 					position: relative;
 
 					&:hover > ul {
 						display: block;
-					}
-
-					a {
-						border-bottom: none;
 					}
 
 					&.menu-item-has-children {
@@ -1336,7 +1339,6 @@ video {
 						z-index: 9999;
 
 						li {
-							float: none;
 							margin: 0;
 							padding: 0;
 
@@ -1351,6 +1353,7 @@ video {
 								background-color: #FFF;
 								color: $text-color;
 								border-top: solid 1px $border-color;
+								border-bottom: none;
 								height: auto;
 								padding-left: 0.4em;
 								white-space: normal;
@@ -1378,7 +1381,7 @@ video {
 	}
 
 	#content {
-		padding-right: 1.6em;
+		padding-right: 3.2em;
 
 		.entry-header,
 		.entry-meta,
@@ -1390,15 +1393,8 @@ video {
 	#sidebar {
 	    float: right;
 	    width: 300px;
+		padding: 0;
 	    margin-left: -300px;
-
-		.widget {
-			border: solid 4px $border-color;
-
-			&.search {
-				width: 100%;
-			}
-		}
 	}
 
 	.single {
